@@ -1,7 +1,12 @@
 package Data;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.TemplatePage;
 
 import java.io.IOException;
 
@@ -13,6 +18,11 @@ public class DataSource {
     public static final String groupMoney = "0.01";
     public static final String ciku = "测试环境接口自动化测试商品勿动人参果";
     public static final String longon = "测试环境接口自动化测试商品勿动龙眼";
+    public static final String motherPrice = "0.01";
+    public static final String retailPrice = "0.02";
+    public static final String marketingPrice = "888";
+    public static final String purchasePrice = "0.01";
+    public static final String expectArriveTime = Setup.refFormatNowDate();
 
 
     public static void selectMethod(WebElement element, int index){
@@ -43,5 +53,20 @@ public class DataSource {
             System.out.println("Error to run the exe");
             e.printStackTrace();
         }
+    }
+
+    public static void addProduct(WebDriver driver, String productName) {
+        TemplatePage templatePage = new TemplatePage(driver);
+        templatePage.getAddProduct().click();
+        driver.switchTo().frame("layui-layer-iframe1");
+        templatePage.getInsertProductName().sendKeys(productName);
+        templatePage.getSearch().click();
+        templatePage.getClick().click();
+        templatePage.getAddProductSubmit().click();
+    }
+
+    public static void waitDriver(WebDriver driver, By by, int time){
+        WebDriverWait wait = new WebDriverWait(driver, time);
+        wait.until(ExpectedConditions.presenceOfElementLocated(by)).click();
     }
 }

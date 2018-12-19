@@ -1,5 +1,6 @@
 package pages;
 
+import Data.DataSource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,22 +27,22 @@ public class TemplatePage {
     @FindBy(xpath = "//section[@id='content']//h2[text()='社区自提']")
     public WebElement communityAbholung;
 
-    @FindBy(id="share_title")//分享名称
+    @FindBy(id = "share_title")//分享名称
     private WebElement shareTitle;
 
-    @FindBy(id="adv")//第一个选择文件
+    @FindBy(id = "adv")//第一个选择文件
     private WebElement choosePicture1;
 
     @FindBy(id = "btnupload")//上传按钮
     public WebElement upLoadButton1;
 
-    @FindBy(id="adv2")//第一个选择文件
+    @FindBy(id = "adv2")//第一个选择文件
     private WebElement choosePicture2;
 
     @FindBy(id = "btnupload2")//上传按钮
     public WebElement upLoadButton2;
 
-    @FindBy(id="adv3")//第一个选择文件
+    @FindBy(id = "adv3")//第一个选择文件
     private WebElement choosePicture3;
 
     @FindBy(id = "btnupload3")//上传按钮
@@ -80,7 +81,7 @@ public class TemplatePage {
     @FindBy(name = "is_sell_num")//已抢开关
     public WebElement alreadySaleSwitch;
 
-    @FindBy(xpath = " //section[@id='content']//button[text()='下一步']")//下一步
+    @FindBy(xpath = "//section[@id='content']//button[text()='下一步']")//下一步
     public WebElement nextStep;
 
     @FindBy(id = "addblprod")//添加产品
@@ -91,6 +92,125 @@ public class TemplatePage {
 
     @FindBy(id = "btnsubmit")//提交
     public WebElement addProductSubmit;
+
+    @FindBy(xpath = "//button[@id='btnsubmit']//preceding-sibling::button")//查询
+    public WebElement search;
+
+    @FindBy(xpath = "//input[@name='bl_prod_id']//following-sibling::i")//选择
+    public WebElement click;
+
+    @FindBy(xpath = "//section[@id='content']//tr[1]//input[contains(@onchange,'upmama_price')]")//妈妈价
+    public WebElement motherPrice;
+
+    @FindBy(xpath = "//section[@id='content']//tr[1]//input[contains(@onchange,'upselling_price')]")//零售价
+    public WebElement retailPrice;
+
+    @FindBy(xpath = "//section[@id='content']//tr[1]//input[contains(@onchange,'upshow_price')]")//市场价
+    public WebElement marketingPrice;
+
+    @FindBy(xpath = "//section[@id='content']//tr[1]//input[contains(@onchange,'uppurchase_price')]")//进货价
+    public WebElement purchasePrice;
+
+    @FindBy(xpath = "//section[@id='content']//tr[1]//input[contains(@onchange,'changeSen')]")//预计到货时间
+    public WebElement expectArriveTime;
+
+    @FindBy(xpath = "//section[@id='content']//tr[2]//input[contains(@onchange,'upmama_price')]")//妈妈价2
+    public WebElement motherPrice2;
+
+    @FindBy(xpath = "//section[@id='content']//tr[2]//input[contains(@onchange,'upselling_price')]")//零售价2
+    public WebElement retailPrice2;
+
+    @FindBy(xpath = "//section[@id='content']//tr[2]//input[contains(@onchange,'upshow_price')]")//市场价2
+    public WebElement marketingPrice2;
+
+    @FindBy(xpath = "//section[@id='content']//tr[2]//input[contains(@onchange,'uppurchase_price')]")//进货价2
+    public WebElement purchasePrice2;
+
+    @FindBy(xpath = "//section[@id='content']//tr[2]//input[contains(@onchange,'changeSen')]")//预计到货时间2
+    public WebElement expectArriveTime2;
+
+    @FindBy(id = "doopen")//手动开团
+    public WebElement manualOpen;
+
+    @FindBy(linkText = "确定")
+    public WebElement openModuleSureButton;
+
+    @FindBy(id = "tijiao")//提交开团
+    private WebElement submitForOpenModule;
+
+    @FindBy(xpath = "//section[@id='content']//input[@data-id='1197']//following-sibling::i")//Leoliu
+    public WebElement Leoliu;
+
+    @FindBy(xpath = " //section[@id='content']//button[text()='提交']")//开团最后提交
+    public WebElement openFinalSubmit;
+
+    public WebElement getOpenFinalSubmit() {
+        return openFinalSubmit;
+    }
+
+    public WebElement getLeoliu() {
+        return Leoliu;
+    }
+
+    public WebElement getSubmitForOpenModule() {
+        return submitForOpenModule;
+    }
+
+    public WebElement getOpenModuleSureButton() {
+        return openModuleSureButton;
+    }
+
+    public WebElement getManualOpen() {
+        return manualOpen;
+    }
+
+    public WebElement getClick() {
+        return click;
+    }
+
+    public WebElement getExpectArriveTime() {
+        return expectArriveTime;
+    }
+
+    public WebElement getExpectArriveTime2() {
+        return expectArriveTime2;
+    }
+
+    public WebElement getMotherPrice2() {
+        return motherPrice2;
+    }
+
+    public WebElement getRetailPrice2() {
+        return retailPrice2;
+    }
+
+    public WebElement getMarketingPrice2() {
+        return marketingPrice2;
+    }
+
+    public WebElement getPurchasePrice2() {
+        return purchasePrice2;
+    }
+
+    public WebElement getPurchasePrice() {
+        return purchasePrice;
+    }
+
+    public WebElement getMarketingPrice() {
+        return marketingPrice;
+    }
+
+    public WebElement getRetailPrice() {
+        return retailPrice;
+    }
+
+    public WebElement getMotherPrice() {
+        return motherPrice;
+    }
+
+    public WebElement getSearch() {
+        return search;
+    }
 
     public WebElement getAddProductSubmit() {
         return addProductSubmit;
@@ -199,4 +319,5 @@ public class TemplatePage {
     public WebElement getUpLoadButton1() {
         return upLoadButton1;
     }
+
 }

@@ -79,22 +79,28 @@ public class LoginTest extends Setup {
     @Test
     public void createTemplate() throws InterruptedException {
         TemplatePage templatePage = new TemplatePage(driver);
+        logger.info("准备点击模板管理按钮");
         templatePage.getTemplateManagerMainMenu().click();
+        logger.info("模板管理按钮选择成功");
+        logger.info("准备点击模板查询按钮");
         templatePage.getTemplateSearch().click();
+        logger.info("模板查询按钮点击成功");
+        logger.info("准备选择新增模板按钮");
         templatePage.getCreateTemplate().click();
+        logger.info("新增模板按钮点击成功");
         templatePage.getCommunityAbholung().click();
         templatePage.getShareTitle().sendKeys(Setup.refFormatNowDate());
         templatePage.getChoosePicture1().click();
         DataSource.uploadPic();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         templatePage.getUpLoadButton1().click();
         templatePage.getChoosePicture2().click();
         DataSource.uploadPic();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         templatePage.getUpLoadButton2().click();
         templatePage.getChoosePicture3().click();
         DataSource.uploadPic();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         templatePage.getUpLoadButton3().click();
         templatePage.getBeginTime().click();
         driver.switchTo().frame(0);
@@ -102,32 +108,53 @@ public class LoginTest extends Setup {
         driver.switchTo().defaultContent();
         templatePage.getEndTime().click();
         driver.switchTo().frame(0);
-        templatePage.getNextYear().click();
+        DataSource.waitDriver(driver,By.xpath("//div[@id='dpTitle']//div[@class='navImg NavImgrr']//a"),10);
+        //templatePage.getNextYear().click();
         templatePage.getTimeSureButton().click();
         driver.switchTo().defaultContent();
-        DataSource.selectMethodByVisibleText(templatePage.getTemplateType(),"默认模板");
+        DataSource.selectMethodByVisibleText(templatePage.getTemplateType(), "默认模板");
         templatePage.getGroupMonery().sendKeys(DataSource.groupMoney);
-        DataSource.selectMethodByVisibleText(templatePage.getPageTheme(),"默认主题");
-        DataSource.selectMethodByVisibleText(templatePage.getShowInventory(),"显示");
-        DataSource.selectMethodByVisibleText(templatePage.getOpenPush(),"开启");
-        DataSource.selectMethodByVisibleText(templatePage.getAccumulateSales(),"开启");
-        DataSource.selectMethodByVisibleText(templatePage.getAlreadySaleSwitch(),"开启");
+        DataSource.selectMethodByVisibleText(templatePage.getPageTheme(), "默认主题");
+        DataSource.selectMethodByVisibleText(templatePage.getShowInventory(), "显示");
+        DataSource.selectMethodByVisibleText(templatePage.getOpenPush(), "开启");
+        DataSource.selectMethodByVisibleText(templatePage.getAccumulateSales(), "开启");
+        DataSource.selectMethodByVisibleText(templatePage.getAlreadySaleSwitch(), "开启");
         templatePage.getNextStep().click();
-        templatePage.getAddProduct().click();
-        driver.switchTo().frame("layui-layer-iframe1");
-        templatePage.getInsertProductName().sendKeys(DataSource.ciku);
-        templatePage.getAddProductSubmit().click();
-
-
-
+        DataSource.addProduct(driver,DataSource.ciku);
+        DataSource.addProduct(driver,DataSource.longon);
+        driver.switchTo().defaultContent();
+        Thread.sleep(2000);
+        templatePage.getMotherPrice().sendKeys(DataSource.motherPrice);
+        templatePage.getRetailPrice().sendKeys(DataSource.retailPrice);
+        templatePage.getMarketingPrice().sendKeys(DataSource.marketingPrice);
+        templatePage.getPurchasePrice().sendKeys(DataSource.purchasePrice);
+        templatePage.getExpectArriveTime().sendKeys(DataSource.expectArriveTime);
+        Thread.sleep(3000);
+        driver.get(driver.getCurrentUrl());
+        templatePage.getMotherPrice2().sendKeys(DataSource.motherPrice);
+        templatePage.getRetailPrice2().sendKeys(DataSource.retailPrice);
+        templatePage.getMarketingPrice2().sendKeys(DataSource.marketingPrice);
+        templatePage.getPurchasePrice2().sendKeys(DataSource.purchasePrice);
+        templatePage.getExpectArriveTime2().sendKeys(DataSource.expectArriveTime);
+        driver.get(driver.getCurrentUrl());
+        Thread.sleep(2000);
+        templatePage.getManualOpen().click();
+        Thread.sleep(1000);
+        templatePage.getOpenModuleSureButton().click();
+        Thread.sleep(3000);
+        //DataSource.waitDriver(driver,By.id("doopen"),10);
+        templatePage.getSubmitForOpenModule().click();
+        templatePage.getOpenModuleSureButton().click();
+        templatePage.getLeoliu().click();
+        templatePage.getOpenFinalSubmit().click();
+        templatePage.getOpenModuleSureButton().click();
+        templatePage.getTemplateSearch().click();
+    }
 
 
 //        WebDriverWait wait = new WebDriverWait(driver, 10);
 //        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("btnupload"))).click();
 
-
-
-    }
 
 //    @DataProvider(name="user")
 //    public Object[][] Users(){
