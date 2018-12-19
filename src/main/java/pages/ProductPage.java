@@ -90,7 +90,7 @@ public class ProductPage {
     @FindBy(xpath="//ul[@id='select2-specId2-results']//li[text()='大小型号']")//产品规格2的值大小型号
     private WebElement productSprcificationValue2;
 
-    @FindBy(id="specValueId2")//产品规格值2
+    @FindBy(xpath="//div[@class='col-sm-3']//span[@class='select2-selection select2-selection--multiple']//input[@placeholder='请选择']")//产品规格值2
     private WebElement productvalue2;
 
     @FindBy(xpath="//ul[@id='select2-specValueId2-results']//li[text()='XL']")//产品规格2的值XL
@@ -109,6 +109,29 @@ public class ProductPage {
     private WebElement productvalue3Choose;
 
 
+    public WebElement getProductvalue2() {
+        return productvalue2;
+    }
+
+    public WebElement getProductvalue2Choose() {
+        return productvalue2Choose;
+    }
+
+    public WebElement getProductSprcification3() {
+        return productSprcification3;
+    }
+
+    public WebElement getProductSprcificationValue3() {
+        return productSprcificationValue3;
+    }
+
+    public WebElement getProductvalue3() {
+        return productvalue3;
+    }
+
+    public WebElement getProductvalue3Choose() {
+        return productvalue3Choose;
+    }
 
     public WebElement getProductvalue1Choose() {
         return productvalue1Choose;

@@ -37,6 +37,7 @@ public class Setup {
         }
 
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         return driver;
     }
 

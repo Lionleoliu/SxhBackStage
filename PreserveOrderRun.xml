@@ -10,7 +10,7 @@
             <class name="tests.LoginTest">
                 <methods>
                     <include name="openBrowser"/><!--1-->
-                    <include name="createProduct"/>
+                    <include name="createTemplate"/>
                 </methods>
             </class>
         </classes>
